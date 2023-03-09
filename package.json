@@ -1,0 +1,14 @@
+{
+  "name": "totem-new",
+  "version": "1.0.0",
+  "description": "Website code for https://totem.lol",
+  "main": "app.js",
+  "scripts": {
+    "init": "node app.js"
+  },
+  "author": "Totem#0001",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
