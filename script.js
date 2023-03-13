@@ -253,3 +253,5 @@ const waitForImages = () => {
 };
 
 waitForImages();
+
+console.log("Loaded")
