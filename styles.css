@@ -293,7 +293,7 @@ button:focus {
 
 .footer {
     position: absolute;
-    top: 80%; right: 50%;
+    top: 88%; right: 50%;
     transform: translate(50%,-50%);
     width: auto;
     min-width: 410px;
