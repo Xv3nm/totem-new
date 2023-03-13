@@ -1,5 +1,6 @@
 console.log("Loading...")
 const { gsap, imagesLoaded } = window;
+var Loaded = false
 
 const buttons = {
     prev: document.getElementById("btn--left"),
@@ -207,6 +208,14 @@ function init() {
     );
 }
 
+const InitTyped = () => {
+    var typed = new Typed('.typedintro', {
+        strings: ["Hello!", "I script while bored", "I am a bored scripter", "I will never make any paid scripts", "Lego Games are C00l"],
+        typeSpeed: 30
+      });
+      
+}
+
 const waitForImages = () => {
     const images = [...document.querySelectorAll("img")];
     const totalImages = images.length;
@@ -249,8 +258,8 @@ const waitForImages = () => {
             }
         });
     });
+    console.log("Loading completed...")
 };
 
 waitForImages();
 
-console.log("Loading completed...")
