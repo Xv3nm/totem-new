@@ -290,3 +290,11 @@ button:focus {
         --card-height: 400px;
     }
 }
+
+.footer {
+    position: absolute;
+    top: 80%; right: 50%;
+    transform: translate(50%,-50%);
+    width: 10rem;
+    height: 3rem;
+}

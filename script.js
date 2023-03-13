@@ -210,7 +210,7 @@ function init() {
 
 const InitTyped = () => {
     var typed = new Typed('.typedintro', {
-        strings: ["Hello!", "I script while bored", "I am a bored scripter", "I will never make any paid scripts", "Lego Games are C00l"],
+        strings: ["Hello!", "I script while bored", "I am a bored scripter", "Lego Games are c00l"],
         typeSpeed: 40
     });
 }
