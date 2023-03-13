@@ -250,8 +250,8 @@ const waitForImages = () => {
             }
         });
     });
+
+    console.log("Loaded")
 };
 
 waitForImages();
-
-console.log("Loaded")
