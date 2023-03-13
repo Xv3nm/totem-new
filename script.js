@@ -1,5 +1,4 @@
-console.clear();
-
+console.log("Loading...")
 const { gsap, imagesLoaded } = window;
 
 const buttons = {
@@ -250,8 +249,8 @@ const waitForImages = () => {
             }
         });
     });
-
-    console.log("Loaded")
 };
 
 waitForImages();
+
+console.log("Loading completed...")
