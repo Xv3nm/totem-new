@@ -209,12 +209,12 @@ button:focus {
     text-transform: uppercase;
 }
 .info .location {
-    font-weight: 800;
+    font-weight: 500;
 }
 .info .location {
     --mg-left: 40px;
     --text-size-offset: 0.12;
-    font-weight: 600;
+    font-weight: 500;
     margin-left: var(--mg-left);
     margin-bottom: calc(var(--mg-left) / 2);
     padding-bottom: 0.8rem;
