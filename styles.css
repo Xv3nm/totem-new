@@ -302,3 +302,7 @@ button:focus {
     height: auto;
     min-height: 210px;
 }
+
+#card__link {
+    all: unset;
+}
