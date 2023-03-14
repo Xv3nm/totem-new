@@ -209,13 +209,13 @@ button:focus {
 }
 .info .name, .info .location {
     text-transform: uppercase;
-    --text-size-offset: 0.085;
+    --text-size-offset: 0.092;
 }
 .info .location {
     font-weight: 500;
 }
 .info .location {
-    --mg-left: 40px;
+    --mg-left: 0px;
     --text-size-offset: 0.075;
     font-weight: 500;
     margin-left: var(--mg-left);
