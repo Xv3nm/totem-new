@@ -114,14 +114,39 @@
 </body>
 <script src="https://totem.lol/script.js?1888"></script>
 <script>
+    $(document).on("mousedown", function (e1) {
+    if (e1.which === 2) {
+        $(document).one("mouseup", function (e2) {
+        if (e1.target === e2.target) {
+            var e3 = $.event.fix(e2);
+            e3.type = "middleclick";
+            $(e2.target).trigger(e3);
+        }
+        });
+    }
+    }); 
+    
     $(".projects__card").click(function(){
         window.location.replace("https://totem.lol/Projects");
     });
+    $(document).on("middleclick", ".projects__card", function (e) {
+        window.open("https://totem.lol/Projects","_blank");
+    });
+
+
     $(".verm__card").click(function(){
         window.location.replace("https://v3rmillion.net/member.php?action=profile&uid=567152");
     });
+    $(document).on("middleclick", ".verm__card", function (e) {
+        window.open("https://v3rmillion.net/member.php?action=profile&uid=567152","_blank");
+    });
+
+
     $(".github__card").click(function(){
         window.location.replace("https://github.com/Xv3nm/lua-rblx-repo");
+    });
+    $(document).on("middleclick", ".github__card", function (e) {
+        window.open("https://github.com/Xv3nm/lua-rblx-repo","_blank");
     });
 </script>
 </html>
