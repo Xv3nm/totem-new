@@ -300,3 +300,7 @@ button:focus {
     height: auto;
     min-height: 210px;
 }
+
+.lanyard__image {
+    max-width: 100%;
+}
