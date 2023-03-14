@@ -24,29 +24,23 @@
             </button>
 
             <div class="cards__wrapper">
-                <a class="card__link" href="./Projects">
-                    <div class="card current--card">
-                        <div class="card__image">
-                            <img src="./image-1.png" alt="" />
-                        </div>
+                <div class="card current--card projects__card">
+                    <div class="card__image">
+                        <img src="./image-1.png" alt="" />
                     </div>
-                </a>
+                </div>
 
-                <a class="card__link" href="https://github.com/Xv3nm/lua-rblx-repo">
-                    <div class="card next--card">
-                        <div class="card__image">
-                            <img src="./image-2.jpg" alt="" />
-                        </div>
+                <div class="card next--card">
+                    <div class="card__image">
+                        <img src="./image-2.jpg" alt="" />
                     </div>
-                </a>
+                </div>
 
-                <a class="card__link" href="https://v3rmillion.net/member.php?action=profile&uid=567152">
-                    <div class="card previous--card">
-                        <div class="card__image">
-                            <img src="./image-3.jpg" alt="" />
-                        </div>
+                <div class="card previous--card verm__card">
+                    <div class="card__image">
+                        <img src="./image-3.jpg" alt="" />
                     </div>
-                </a>
+                </div>
             </div>
 
             <button class="cardList__btn btn btn--right" id="btn--right">
@@ -118,4 +112,15 @@
     </svg>
 </body>
 <script src="https://totem.lol/script.js?1555"></script>
+<script>
+    $(".projects__card").click(function(){
+        window.location.replace("https://totem.lol/Projects");
+    });
+    $(".verm__card").click(function(){
+        window.location.replace("https://v3rmillion.net/member.php?action=profile&uid=567152");
+    });
+    $(".github__card").click(function(){
+        window.location.replace("https://github.com/Xv3nm/lua-rblx-repo");
+    });
+</script>
 </html>
