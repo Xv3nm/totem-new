@@ -132,6 +132,7 @@ button:focus {
     height: var(--card-height);
     transition: transform var(--card-transition-duration) var(--card-transition-easing);
     user-select: none;
+    cursor: pointer;
 }
 .card::before {
     content: "";
