@@ -258,6 +258,15 @@ const waitForImages = () => {
         });
     });
     console.log("Loading completed...")
+
+    var cardlink1 = document.getElementsByClassName("card__link")[0]
+    var cardlink2 = document.getElementsByClassName("card__link")[1]
+    var cardlink3 = document.getElementsByClassName("card__link")[2]
+
+    cardlink1.removeAttribute('style');
+    cardlink2.removeAttribute('style');
+    cardlink3.removeAttribute('style');
+
     InitTyped();
 };
 

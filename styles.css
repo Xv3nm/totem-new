@@ -230,9 +230,10 @@ button:focus {
     transform: translate(calc(-1 * var(--mg-left)), -50%);
 }
 .info .location::before {
+    content: none;
     top: 50%;
-    width: 20px;
-    height: 5px;
+    width: 0px;
+    height: 0px;
 }
 .info .location::after {
     bottom: 0;
@@ -303,6 +304,6 @@ button:focus {
     min-height: 210px;
 }
 
-#card__link {
+.card__link {
     all: unset;
 }
