@@ -92,8 +92,8 @@ button:focus {
 }
 .cardList__btn {
     --btn-size: 35px;
-    width: var(--btn-size);
-    height: var(--btn-size);
+    width: 200px;
+    height: 400px;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -101,9 +101,11 @@ button:focus {
 }
 .cardList__btn.btn--left {
     left: -5%;
+    padding-right: 165px;
 }
 .cardList__btn.btn--right {
     right: -5%;
+    padding-left: 165px;
 }
 .cardList__btn .icon {
     width: 100%;
