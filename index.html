@@ -10,7 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" integrity="sha512-f8mwTB+Bs8a5c46DEm7HQLcJuHMBaH/UFlcgyetMqqkvTcYg4g5VXsYR71b3qC82lZytjNYvBj2pf0VekA9/FQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/5.0.0/imagesloaded.pkgd.min.js" integrity="sha512-kfs3Dt9u9YcOiIt4rNcPUzdyNNO9sVGQPiZsub7ywg6lRW5KuK1m145ImrFHe3LMWXHndoKo2YRXWy8rnOcSKg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js" integrity="sha512-hIlMpy2enepx9maXZF1gn0hsvPLerXoLHdb095CmRY5HG3bZfN7XPBZ14g+TUDH1aGgfLyPHmY9/zuU53smuMw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://totem.lol/styles.css?2000">
+    <link rel="stylesheet" href="https://totem.lol/styles.css?2111">
 
 
 
@@ -51,41 +51,5 @@
         </div>
     </div>
 </body>
-<script src="https://totem.lol/script.js?2000"></script>
-<script>
-    $(document).on("mousedown", function (e1) {
-    if (e1.which === 2) {
-        $(document).one("mouseup", function (e2) {
-        if (e1.target === e2.target) {
-            var e3 = $.event.fix(e2);
-            e3.type = "middleclick";
-            $(e2.target).trigger(e3);
-        }
-        });
-    }
-    }); 
-    
-    $(".projects__card").click(function(){
-        window.location.replace("https://totem.lol/Projects");
-    });
-    $(document).on("middleclick", ".projects__card", function (e) {
-        window.open("https://totem.lol/Projects","_blank");
-    });
-
-
-    $(".verm__card").click(function(){
-        window.location.replace("https://v3rmillion.net/member.php?action=profile&uid=567152");
-    });
-    $(document).on("middleclick", ".verm__card", function (e) {
-        window.open("https://v3rmillion.net/member.php?action=profile&uid=567152","_blank");
-    });
-
-
-    $(".github__card").click(function(){
-        window.location.replace("https://github.com/Xv3nm/lua-rblx-repo");
-    });
-    $(document).on("middleclick", ".github__card", function (e) {
-        window.open("https://github.com/Xv3nm/lua-rblx-repo","_blank");
-    });
-</script>
+<script src="https://totem.lol/script.js?2111"></script>
 </html>
