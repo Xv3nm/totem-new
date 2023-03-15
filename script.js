@@ -40,7 +40,10 @@ const waitForImages = () => {
         });
     });
     console.log("Loading completed...")
-    InitTyped();
+    
+    setTimeout(function(){
+        InitTyped();
+    }, 3000);
 };
 
 // 24 hour long loading screen bc Im not done with site :)

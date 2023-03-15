@@ -87,7 +87,7 @@ button:focus {
 }
 .infoList {
     position: absolute;
-    width: calc(3 * var(--card-width));
+    width: calc(6.69 * var(--card-width));
     height: var(--card-height);
     pointer-events: none;
 }
@@ -116,8 +116,8 @@ button:focus {
     width: fit-content;
 }
 .info .name, .info .location {
-    text-transform: uppercase;
-    --text-size-offset: 0.092;
+    padding-bottom: 8rem;
+    --text-size-offset: 0.6;
 }
 .info .location {
     font-weight: 500;
