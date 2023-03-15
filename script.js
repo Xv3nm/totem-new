@@ -43,5 +43,11 @@ const waitForImages = () => {
     InitTyped();
 };
 
-waitForImages();
+// 24 hour long loading screen bc Im not done with site :)
 
+setTimeout(function(){
+    waitForImages();
+}, 86400000);
+
+
+// waitForImages();
