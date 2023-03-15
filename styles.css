@@ -151,6 +151,7 @@ button:focus {
 .info .description {
     --text-size-offset: 0.065;
     font-weight: 500;
+    padding-top: 0.3rem;
 }
 .info.current--info {
     opacity: 1;
