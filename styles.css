@@ -1,214 +1,247 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap");
-:root {
-    --card-width: 200px;
-    --card-height: 300px;
-    --card-transition-duration: 800ms;
-    --card-transition-easing: ease;
-}
-* {
-    box-sizing: border-box;
+body, html {
     margin: 0;
     padding: 0;
+    font-family: 'Arial', sans-serif;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
+
 body {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.787);
-    overflow: hidden;
+    scroll-snap-type: y mandatory;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-y: scroll;
 }
-button {
-    border: none;
-    background: none;
-    cursor: pointer;
+
+::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
 }
-button:focus {
-    outline: none;
-    border: none;
-}
-.app {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.app__bg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: -5;
-    filter: blur(8px);
-    pointer-events: none;
-    user-select: none;
-    overflow: hidden;
-}
-.app__bg::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: #000;
-    z-index: 1;
-    opacity: 0.8;
-}
-.app__bg__image {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%) translateX(var(--image-translate-offset, 0));
-    width: 100%;
-    height: 100%;
-    transition: transform 1000ms ease, opacity 1000ms ease;
-    overflow: hidden;
-}
-.app__bg__image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.app__bg__image.current--image {
-    opacity: 1;
-    --image-translate-offset: 0;
-}
-.app__bg__image.previous--image, .app__bg__image.next--image {
-    opacity: 0;
-}
-.app__bg__image.previous--image {
-    --image-translate-offset: -25%;
-}
-.app__bg__image.next--image {
-    --image-translate-offset: 25%;
-}
-.infoList {
-    position: absolute;
-    width: calc(6.69 * var(--card-width));
-    height: var(--card-height);
-    pointer-events: none;
-}
-.infoList .info__wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
-    perspective: 1000px;
-    transform-style: preserve-3d;
-}
-.info {
-    margin-bottom: calc(var(--card-height) / 8);
-    margin-left: calc(var(--card-width) / 1.5);
-    transform: translateZ(2rem);
-    transition: transform var(--card-transition-duration) var(--card-transition-easing);
-}
-.info .text {
-    position: relative;
-    font-family: "Montserrat";
-    font-size: calc(var(--card-width) * var(--text-size-offset, 0.2));
-    white-space: nowrap;
-    color: #fff;
-    width: fit-content;
-}
-.info .name, .info .location {
-    padding-bottom: 8rem;
-    --text-size-offset: 0.6;
-}
-.info .location {
-    font-weight: 500;
-}
-.info .location {
-    --mg-left: 0px;
-    --text-size-offset: 0.075;
-    font-weight: 500;
-    margin-left: var(--mg-left);
-    margin-bottom: calc(var(--mg-left) / 2);
-    padding-bottom: 0.8rem;
-}
-.info .location::before, .info .location::after {
-    content: "";
-    position: absolute;
-    background: #fff;
-    left: 0%;
-    transform: translate(calc(-1 * var(--mg-left)), -50%);
-}
-.info .location::before {
-    content: none;
-    top: 50%;
-    width: 0px;
-    height: 0px;
-}
-.info .location::after {
-    bottom: 0;
-    width: 60px;
-    height: 2px;
-}
-.info .description {
-    --text-size-offset: 0.065;
-    font-weight: 500;
-    padding-top: 0.3rem;
-}
-.info.current--info {
-    opacity: 1;
-    display: block;
-}
-.info.previous--info, .info.next--info {
-    opacity: 0;
+
+body::-webkit-scrollbar {
     display: none;
 }
-.loading__wrapper {
-    position: fixed;
-    left: 0;
-    top: 0;
+
+.page {
+    position: relative;
     width: 100%;
     height: 100%;
+    scroll-snap-align: start;
+    background-color: transparent;
+}
+ 
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    background-color: #1d1e22;
+    z-index: -2;
+}
+
+#page1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    background: #000;
-    z-index: 200;
+    align-items: flex-start;
+    padding-left: 50px;
 }
-.loading__wrapper .loader--text {
-    color: #fff;
-    font-family: "Montserrat";
-    font-weight: 500;
-    margin-bottom: 1.4rem;
+
+#typed-text {
+    font-size: 3rem;
+    color: #ffffff;
+    z-index: 100;
+    white-space: pre;
 }
-.loading__wrapper .loader {
-    position: relative;
-    width: 200px;
-    height: 2px;
-    background: rgba(255, 255, 255, 0.25);
-}
-.loading__wrapper .loader span {
+
+.arrow-container {
     position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: #f00;
-    transform: scaleX(0);
-    transform-origin: left;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px;
+    padding-inline: 100px;
 }
-@media only screen and (min-width: 800px) {
-    :root {
-        --card-width: 250px;
-        --card-height: 400px;
+
+.arrow-down {
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg) translateY(-50%);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: rotate(45deg) translateY(-50%);
+    }
+    40% {
+        transform: rotate(45deg) translateY(-100%);
+    }
+    60% {
+        transform: rotate(45deg) translateY(-75%);
     }
 }
 
-.footer {
-    position: absolute;
-    top: 88%; right: 50%;
-    transform: translate(50%,-50%);
+#page2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.links-container {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+}
+
+.links-container img {
+    height: 100px;
     width: auto;
-    min-width: 410px;
-    height: auto;
-    min-height: 210px;
+    cursor: pointer;
+}
+
+.typed-cursor{
+    font-size: 4rem;
+    opacity: 1;
+    color: white;
+}
+
+
+
+@keyframes glitch {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(calc(-3px * var(--direction)));
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(calc(3px * var(--direction)));
+    }
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+* {
+    color: white;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse, mediumturquoise, darkslateblue);
+    filter: url(#grainy);
+    z-index: -1;
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .6);
+    z-index: -1;
+}
+
+#root {
+    display: flex;
+    flex-basis: 100%;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.distfx {
+    animation: distfx .5s linear infinite;
+}
+
+@keyframes distfx {
+    0% {
+        filter: url("#distfx-0");
+    }
+    20% {
+        filter: url("#distfx-1");
+    }
+    40% {
+        filter: url("#distfx-2");
+    }
+    60% {
+        filter: url("#distfx-3");
+    }
+    80% {
+        filter: url("#distfx-4");
+    }
+    100% {
+        filter: url("#distfx-5");
+    }
+}
+
+#projectsButton {
+  position: relative;
+  top: 45px;
+  left: 40px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.7rem;
+  font-weight: 300;
+  color: #f1f1f1;
+  background: none;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+  z-index: 1;
+  opacity: 0;
+}
+
+#projectsButton.animate {
+  transition: opacity 1s, color 0.3s;
+  opacity: 1;
+}
+
+#projectsButton:hover {
+  color: #a9a9a9;
+}
+
+#contactButton {
+  position: relative;
+  top: 45px;
+  left: 50px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.7rem;
+  font-weight: 300;
+  color: #f1f1f1;
+  background: none;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+  z-index: 1;
+  opacity: 0;
+}
+
+#contactButton.animate {
+  transition: opacity 1s, color 0.3s;
+  opacity: 1;
+}
+
+#contactButton:hover {
+  color: #a9a9a9;
+}
+
+.logo {
+  width: 64px;
+  height: auto;
+  margin: 0 20px;
 }

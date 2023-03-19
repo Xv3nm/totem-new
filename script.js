@@ -1,56 +1,63 @@
-console.log("Loading...")
-const { gsap, imagesLoaded } = window;
-
-const InitTyped = () => {
-    var typed = new Typed('.typedintro', {
-        strings: ["Hello!", "Something Smart", "I script when bored", "Lego Games are c00l"],
-        typeSpeed: 40,
-        showCursor: false
-    });
-}
-
-const waitForImages = () => {
-    const images = [...document.querySelectorAll("img")];
-    const totalImages = images.length;
-    let loadedImages = 0;
-    const loaderEl = document.querySelector(".loader span");
-
-    images.forEach((image) => {
-        imagesLoaded(image, (instance) => {
-            if (instance.isComplete) {
-                loadedImages++;
-                let loadProgress = loadedImages / totalImages;
-
-                gsap.to(loaderEl, {
-                    duration: 1,
-                    scaleX: loadProgress,
-                    backgroundColor: `hsl(${loadProgress * 120}, 100%, 50%`,
-                });
-
-                if (totalImages == loadedImages) {
-                    gsap.timeline()
-                        .to(".loading__wrapper", {
-                        duration: 0.8,
-                        opacity: 0,
-                        pointerEvents: "none",
-                    })
-                        .call(() => init());
-                }
-            }
-        });
-    });
-    console.log("Loading completed...")
+function scrollToElement(elementId) {
+    const element = document.getElementById(elementId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+  
+  document.addEventListener('DOMContentLoaded', () => {
     
-    setTimeout(function(){
-        InitTyped();
-    }, 3000);
-};
-
-// 24 hour long loading screen bc Im not done with site :)
-
-setTimeout(function(){
-    waitForImages();
-}, 86400000);
-
-
-// waitForImages();
+      const typed = new Typed('#typed-text', {
+          strings: ['My scripts are so good, even my errors look intentional.','Don\'t quote me on that.','','What are you waiting for?','Im done.'],
+          typeSpeed: 25,
+          backSpeed: 10,
+          backDelay: 1000,
+          startDelay: 1000,
+          loop: false,
+          onComplete: function(self) {
+            const projectsButton = document.getElementById("projectsButton");
+            projectsButton.classList.add("animate");
+            const contactButton = document.getElementById("contactButton");
+            contactButton.classList.add("animate");
+          }
+      });
+    
+      
+  
+      let arrowContainer = document.querySelector(".arrow-container");
+  
+      arrowContainer.addEventListener("click", () => {
+          window.scrollBy({
+              top: window.innerHeight,
+              behavior: 'smooth'
+          });
+      });
+  });
+  
+  document.addEventListener("DOMContentLoaded", function () {
+      const glitchText = document.getElementById("typed-text");
+  
+      function randomInt(min, max) {
+          return Math.floor(Math.random() * (max - min + 1) + min);
+      }
+  
+      function glitch() {
+          const glitchAmount = randomInt(1, 3);
+  
+          for (let i = 0; i < glitchAmount; i++) {
+              const glitchNode = glitchText.cloneNode(true);
+              glitchNode.style.position = "absolute";
+              glitchNode.style.left = `${glitchText.offsetLeft + randomInt(-3, 3)}px`;
+              glitchNode.style.top = `${glitchText.offsetTop + randomInt(-3, 3)}px`;
+              glitchNode.style.color = `rgba(${randomInt(0, 255)}, ${randomInt(0, 255)}, ${randomInt(0, 255)}, ${Math.random()})`;
+              glitchNode.style.zIndex = -1;
+              glitchText.parentNode.appendChild(glitchNode);
+  
+              setTimeout(() => {
+                  glitchText.parentNode.removeChild(glitchNode);
+              }, randomInt(50, 150));
+          }
+      }
+  
+      setInterval(glitch, 550);
+  });
