@@ -99,7 +99,7 @@ body::-webkit-scrollbar {
 }
 
 .links-container img {
-    height: 100px;
+    height: 75px;
     width: auto;
     cursor: pointer;
 }
@@ -243,5 +243,5 @@ body::after {
 .logo {
   width: 64px;
   height: auto;
-  margin: 0 20px;
+  margin: 0 50px;
 }
