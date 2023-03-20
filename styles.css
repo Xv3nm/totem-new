@@ -92,6 +92,7 @@ img {
   cursor: pointer;
 }
 .dark-light svg {
+  display: flex;
   width: 24px;
   flex-shrink: 0;
   fill: #ffce45;
