@@ -323,6 +323,12 @@ body.light-mode .video-bg:before {
   overflow: auto;
   flex-shrink: 0;
   scrollbar-width: thin;
+  scrollbar-color: rgb(113, 119, 144) transparent;
+}
+
+.left-side::-webkit-scrollbar-thumb {
+  background-color: rgb(113, 119, 144);
+  border-radius: 3px;
 }
 
 .left-side::-webkit-scrollbar {
@@ -340,15 +346,6 @@ body.light-mode .video-bg:before {
 
 .left-side::-webkit-scrollbar-button {
   display: none;
-}
-
-.left-side::-moz-scrollbar-thumb {
-  background-color: rgb(113, 119, 144);
-  border-radius: 3px;
-}
-
-.left-side::-moz-scrollbar-track {
-  background-color: transparent;
 }
 
 @media screen and (max-width: 945px) {
