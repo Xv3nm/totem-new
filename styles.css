@@ -323,7 +323,7 @@ body.light-mode .video-bg:before {
   overflow: auto;
   flex-shrink: 0;
   scrollbar-width: thin;
-  scrollbar-color: rgb(113, 119, 144) transparent;
+  scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
 }
 
 .left-side::-webkit-scrollbar-thumb {
