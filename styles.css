@@ -46,11 +46,11 @@ body::-webkit-scrollbar {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding-left: 50px;
+    padding-left: 2vw;
 }
 
 #typed-text {
-    font-size: 3rem;
+    font-size: 4vw;
     color: #ffffff;
     z-index: 100;
     white-space: pre;
@@ -105,7 +105,7 @@ body::-webkit-scrollbar {
 }
 
 .typed-cursor{
-    font-size: 4rem;
+    font-size: 4.4vw;
     opacity: 1;
     color: white;
 }
@@ -193,9 +193,9 @@ body::after {
 #projectsButton {
   position: relative;
   top: 45px;
-  left: 40px;
+  left: 2vw;
   font-family: 'Roboto Mono', monospace;
-  font-size: 1.7rem;
+  font-size: 4vw;
   font-weight: 300;
   color: #f1f1f1;
   background: none;
@@ -220,7 +220,7 @@ body::after {
   top: 45px;
   left: 50px;
   font-family: 'Roboto Mono', monospace;
-  font-size: 1.7rem;
+  font-size: 4vw;
   font-weight: 300;
   color: #f1f1f1;
   background: none;

@@ -4,6 +4,20 @@ function scrollToElement(elementId) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   }
+
+
+  function positionContactButton() {
+    let projectsButton = document.getElementById("projectsButton");
+    let contactButton = document.getElementById("contactButton");
+    let rect = projectsButton.getBoundingClientRect();
+    let newPos = rect.right + 10;
+    contactButton.style.left = newPos + "px";
+  }
+
+  window.onresize = function() {
+    positionContactButton();
+  }
+  
   
   document.addEventListener('DOMContentLoaded', () => {
     
@@ -19,6 +33,8 @@ function scrollToElement(elementId) {
             projectsButton.classList.add("animate");
             const contactButton = document.getElementById("contactButton");
             contactButton.classList.add("animate");
+
+            positionContactButton();
           }
       });
     
