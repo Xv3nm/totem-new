@@ -10,7 +10,7 @@ function scrollToElement(elementId) {
     let projectsButton = document.getElementById("projectsButton");
     let contactButton = document.getElementById("contactButton");
     let rect = projectsButton.getBoundingClientRect();
-    let newPos = rect.right + 10;
+    let newPos = rect.right + 2;
     contactButton.style.left = newPos + "px";
   }
 
@@ -75,5 +75,5 @@ function scrollToElement(elementId) {
           }
       }
   
-      setInterval(glitch, 550);
+      setInterval(glitch, 250);
   });

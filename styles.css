@@ -50,7 +50,7 @@ body::-webkit-scrollbar {
 }
 
 #typed-text {
-    font-size: 4vw;
+    font-size: max(4vw, 3rem);
     color: #ffffff;
     z-index: 100;
     white-space: pre;
@@ -193,9 +193,9 @@ body::after {
 #projectsButton {
   position: relative;
   top: 45px;
-  left: 2vw;
+  left: 40px;
   font-family: 'Roboto Mono', monospace;
-  font-size: 4vw;
+  font-size: max(4vw, 3rem);
   font-weight: 300;
   color: #f1f1f1;
   background: none;
@@ -220,7 +220,7 @@ body::after {
   top: 45px;
   left: 50px;
   font-family: 'Roboto Mono', monospace;
-  font-size: 4vw;
+  font-size: max(4vw, 3rem);
   font-weight: 300;
   color: #f1f1f1;
   background: none;
