@@ -10,8 +10,8 @@ function scrollToElement(elementId) {
     let projectsButton = document.getElementById("projectsButton");
     let contactButton = document.getElementById("contactButton");
     let rect = projectsButton.getBoundingClientRect();
-    let newPos = rect.right + 1;
-    contactButton.style.left = newPos;
+    let newPos = rect.right + 0.1;
+    contactButton.style.left = newPos + "px";
   }
 
   window.onresize = function() {
