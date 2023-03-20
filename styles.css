@@ -336,7 +336,8 @@ body.light-mode .video-bg:before {
   background-color: transparent;
 }
 
-.left-side::-webkit-scrollbar-button:start, ::-webkit-scrollbar-button:end {
+.left-side::-webkit-scrollbar-button:start, 
+.left-side::-webkit-scrollbar-button:end {
   display: none;
 }
 
