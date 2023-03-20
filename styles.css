@@ -191,9 +191,21 @@ body::after {
 }
 
 #projectsButton {
-  position: relative;
   top: 55px;
-  left: 1vw;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.5vw;
+  font-weight: 300;
+  color: #f1f1f1;
+  background: none;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+  z-index: 1;
+  opacity: 0;
+}
+
+#contactButton {
+  top: 55px;
   font-family: 'Roboto Mono', monospace;
   font-size: 1.5vw;
   font-weight: 300;
@@ -207,28 +219,12 @@ body::after {
 }
 
 #projectsButton.animate {
-  transition: opacity 1s, color 0.3s;
-  opacity: 1;
+    transition: opacity 1s, color 0.3s;
+    opacity: 1;
 }
 
 #projectsButton:hover {
-  color: #a9a9a9;
-}
-
-#contactButton {
-  position: relative;
-  top: 55px;
-  left: 50px;
-  font-family: 'Roboto Mono', monospace;
-  font-size: 1.5vw;
-  font-weight: 300;
-  color: #f1f1f1;
-  background: none;
-  border: none;
-  text-decoration: underline;
-  cursor: pointer;
-  z-index: 1;
-  opacity: 0;
+    color: #a9a9a9;
 }
 
 #contactButton.animate {
@@ -238,6 +234,18 @@ body::after {
 
 #contactButton:hover {
   color: #a9a9a9;
+}
+
+.nav {
+    display: flex; /* sets the container to use flexbox layout */
+    justify-content: center; /* centers the buttons horizontally */
+    align-items: center; /* centers the buttons vertically */
+    width: 100vw;
+    height: 110px;
+}
+
+.nav button {
+    margin: 0 10px; /* adds margin between the buttons */
 }
 
 .logo {
