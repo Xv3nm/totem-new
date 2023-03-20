@@ -1,65 +1,73 @@
-function scrollToElement(elementId) {
-    const element = document.getElementById(elementId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
+$(function () {
+    $(".menu-link").click(function () {
+     $(".menu-link").removeClass("is-active");
+     $(this).addClass("is-active");
+    });
+   });
+   
+   $(function () {
+    $(".main-header-link").click(function () {
+     $(".main-header-link").removeClass("is-active");
+     $(this).addClass("is-active");
+    });
+   });
+   
+   const dropdowns = document.querySelectorAll(".dropdown");
+   dropdowns.forEach((dropdown) => {
+    dropdown.addEventListener("click", (e) => {
+     e.stopPropagation();
+     dropdowns.forEach((c) => c.classList.remove("is-active"));
+     dropdown.classList.add("is-active");
+    });
+   });
+   
+   $(".search-bar input")
+    .focus(function () {
+     $(".header").addClass("wide");
+    })
+    .blur(function () {
+     $(".header").removeClass("wide");
+    });
+   
+   $(document).click(function (e) {
+    var container = $(".status-button");
+    var dd = $(".dropdown");
+    if (!container.is(e.target) && container.has(e.target).length === 0) {
+     dd.removeClass("is-active");
     }
-  }
-
-
-  
-  document.addEventListener('DOMContentLoaded', () => {
-    
-      const typed = new Typed('#typed-text', {
-          strings: ['My scripts are so good, even my errors look intentional.','Don\'t quote me on that.','','What are you waiting for?','Im done.'],
-          typeSpeed: 25,
-          backSpeed: 10,
-          backDelay: 1000,
-          startDelay: 1000,
-          loop: false,
-          onComplete: function(self) {
-            const projectsButton = document.getElementById("projectsButton");
-            projectsButton.classList.add("animate");
-            const contactButton = document.getElementById("contactButton");
-            contactButton.classList.add("animate");
-          }
-      });
-    
-      
-  
-      let arrowContainer = document.querySelector(".arrow-container");
-  
-      arrowContainer.addEventListener("click", () => {
-          window.scrollBy({
-              top: window.innerHeight,
-              behavior: 'smooth'
-          });
-      });
-  });
-  
-  document.addEventListener("DOMContentLoaded", function () {
-      const glitchText = document.getElementById("typed-text");
-  
-      function randomInt(min, max) {
-          return Math.floor(Math.random() * (max - min + 1) + min);
-      }
-  
-      function glitch() {
-          const glitchAmount = randomInt(1, 3);
-  
-          for (let i = 0; i < glitchAmount; i++) {
-              const glitchNode = glitchText.cloneNode(true);
-              glitchNode.style.position = "absolute";
-              glitchNode.style.left = `${glitchText.offsetLeft + randomInt(-3, 3)}px`;
-              glitchNode.style.top = `${glitchText.offsetTop + randomInt(-3, 3)}px`;
-              glitchNode.style.color = `rgba(${randomInt(0, 255)}, ${randomInt(0, 255)}, ${randomInt(0, 255)}, ${Math.random()})`;
-              glitchNode.style.zIndex = -1;
-              glitchText.parentNode.appendChild(glitchNode);
-  
-              setTimeout(() => {
-                  glitchText.parentNode.removeChild(glitchNode);
-              }, randomInt(50, 150));
-          }
-      }
-  
-      setInterval(glitch, 250);
-  });
+   });
+   
+   $(function () {
+    $(".dropdown").on("click", function (e) {
+     $(".content-wrapper").addClass("overlay");
+     e.stopPropagation();
+    });
+    $(document).on("click", function (e) {
+     if ($(e.target).is(".dropdown") === false) {
+      $(".content-wrapper").removeClass("overlay");
+     }
+    });
+   });
+   
+   $(function () {
+    $(".status-button:not(.open)").on("click", function (e) {
+     $(".overlay-app").addClass("is-active");
+    });
+    $(".pop-up .close").click(function () {
+     $(".overlay-app").removeClass("is-active");
+    });
+   });
+   
+   $(".status-button:not(.open)").click(function () {
+    $(".pop-up").addClass("visible");
+   });
+   
+   $(".pop-up .close").click(function () {
+    $(".pop-up").removeClass("visible");
+   });
+   
+   const toggleButton = document.querySelector('.dark-light');
+   
+   toggleButton.addEventListener('click', () => {
+     document.body.classList.toggle('light-mode');
+   });
