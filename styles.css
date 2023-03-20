@@ -239,12 +239,11 @@ body::after {
 .nav {
     position: relative;
     display: flex; /* sets the container to use flexbox layout */
-    justify-content: center; /* centers the buttons horizontally */
+    justify-content: left; /* centers the buttons horizontally */
     align-items: center; /* centers the buttons vertically */
     width: 100vw;
     height: 60px;
-    left: 0;
-    top: 0;
+    top: 60px;
 }
 
 .nav button {
