@@ -322,23 +322,33 @@ body.light-mode .video-bg:before {
   padding: 26px;
   overflow: auto;
   flex-shrink: 0;
+  scrollbar-width: thin;
 }
 
 .left-side::-webkit-scrollbar {
-  width: 5px;
+  width: 6px;
 }
 
 .left-side::-webkit-scrollbar-thumb {
   background-color: rgb(113, 119, 144);
+  border-radius: 3px;
 }
 
 .left-side::-webkit-scrollbar-track {
   background-color: transparent;
 }
 
-.left-side::-webkit-scrollbar-button:start, 
-.left-side::-webkit-scrollbar-button:end {
+.left-side::-webkit-scrollbar-button {
   display: none;
+}
+
+.left-side::-moz-scrollbar-thumb {
+  background-color: rgb(113, 119, 144);
+  border-radius: 3px;
+}
+
+.left-side::-moz-scrollbar-track {
+  background-color: transparent;
 }
 
 @media screen and (max-width: 945px) {
