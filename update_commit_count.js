@@ -1,27 +1,38 @@
-const fs = require("fs");
-const fetch = require("node-fetch");
-
 const repoName = "Xv3nm/totem-new";
 const branchName = "main";
 
-const endpoint = `https://api.github.com/repos/${repoName}/commits?sha=${branchName}&per_page=1`;
+const commitCountQuery = `query {
+  repository(owner: "Xv3nm", name: "totem-new") {
+    ref(qualifiedName: "${branchName}") {
+      target {
+        ... on Commit {
+          history {
+            totalCount
+          }
+        }
+      }
+    }
+  }
+}`;
 
-fetch(endpoint)
-  .then(response => {
-    if (!response.ok) {
-      throw new Error(`Error getting commit count: ${response.statusText}`);
-    }
-    return response.headers.get("link");
-  })
-  .then(linkHeader => {
-    const lastPageMatch = linkHeader.match(/<[^>]+page=(\d+)[^>]+>; rel="last"/);
-    if (!lastPageMatch) {
-      throw new Error("Cannot find commit count in Link header");
-    }
-    const commitCount = parseInt(lastPageMatch[1], 10);
-    const commitCountData = { commitCount };
-    fs.writeFileSync("commit_count.json", JSON.stringify(commitCountData));
-  })
-  .catch(error => {
+const endpoint = "https://api.github.com/graphql";
+
+const headers = {
+  "Content-Type": "application/json"
+};
+
+const commitCountBody = JSON.stringify({ query: commitCountQuery });
+
+(async () => {
+  const fetch = await import("node-fetch").then(module => module.default);
+  
+  try {
+    const response = await fetch(endpoint, { method: "POST", headers, body: commitCountBody });
+    const data = await response.json();
+    const commitCount = data.data.repository.ref.target.history.totalCount;
+
+    console.log("Number of commits:", commitCount);
+  } catch (error) {
     console.error("Error getting commit count:", error);
-  });
+  }
+})();
