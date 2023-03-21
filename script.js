@@ -92,21 +92,57 @@ $(document).ready(function() {
   const repoName = "Xv3nm/totem-new";
   const branchName = "main";
 
-  // Retrieve commit count
-  const commitCountUrl = `https://api.github.com/repos/${repoName}/commits?sha=${branchName}&per_page=1`;
-  fetch(commitCountUrl)
-    .then(response => response.json())
-    .then(commits => {
-      const commitCount = commits.length;
+  const commitCountQuery = `query {
+    repository(owner: "Xv3nm", name: "totem-new") {
+      ref(qualifiedName: "${branchName}") {
+        target {
+          ... on Commit {
+            history {
+              totalCount
+            }
+          }
+        }
+      }
+    }
+  }`;
+
+  const lastCommitQuery = `query {
+    repository(owner: "Xv3nm", name: "totem-new") {
+      ref(qualifiedName: "${branchName}") {
+        target {
+          ... on Commit {
+            history(first: 1) {
+              edges {
+                node {
+                  committedDate
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }`;
+
+  const endpoint = "https://api.github.com/graphql";
+
+  const headers = {
+    "Content-Type": "application/json"
+  };
+
+  const commitCountBody = JSON.stringify({ query: commitCountQuery });
+  const lastCommitBody = JSON.stringify({ query: lastCommitQuery });
+
+  Promise.all([
+    fetch(endpoint, { method: "POST", headers, body: commitCountBody }),
+    fetch(endpoint, { method: "POST", headers, body: lastCommitBody })
+  ])
+    .then(responses => Promise.all(responses.map(response => response.json())))
+    .then(data => {
+      const commitCount = data[0].data.repository.ref.target.history.totalCount;
       console.log("Number of commits:", commitCount);
 
-      // Retrieve last commit date
-      const lastCommitUrl = `https://api.github.com/repos/${repoName}/commits?sha=${branchName}&per_page=1`;
-      return fetch(lastCommitUrl);
-    })
-    .then(response => response.json())
-    .then(commits => {
-      const lastCommitDate = new Date(commits[0].commit.author.date);
+      const lastCommitDate = new Date(data[1].data.repository.ref.target.history.edges[0].node.committedDate);
       const now = new Date();
       const diffMs = now - lastCommitDate;
       const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
@@ -132,7 +168,5 @@ $(document).ready(function() {
     .catch(error => {
       console.error("Error getting commit count and last commit date:", error);
     });
-
-
 
 });
