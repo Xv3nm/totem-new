@@ -31,7 +31,7 @@ const commitCountBody = JSON.stringify({ query: commitCountQuery });
   try {
     const response = await fetch(endpoint, { method: 'POST', headers, body: commitCountBody });
     const data = await response.json();
-    const commitCount = data.repository.ref.target.history.totalCount;
+    const commitCount = data.data.repository.ref.target.history.totalCount;
 
     console.log('Number of commits:', commitCount);
 
