@@ -88,4 +88,38 @@ $(document).ready(function() {
       $(".projects-wrapper").fadeIn(150);
     });
   });
+
+  var repoName = "Xv3nm/totem-new";
+  var apiUrl = "https://api.github.com/repos/" + repoName;
+
+  $.ajax({
+    url: apiUrl,
+    method: "GET",
+    headers: {
+      Accept: "application/vnd.github.v3+json"
+    },
+    success: function(data) {
+      var commitCountUrl = data["commits_url"].split("{")[0];
+      var lastCommitDate = data["pushed_at"];
+
+      $.ajax({
+        url: commitCountUrl,
+        method: "GET",
+        headers: {
+          Accept: "application/vnd.github.v3+json"
+        },
+        success: function(data) {
+          var commitCount = data.length;
+          console.log("Number of commits: " + commitCount);
+          console.log("Last commit date: " + lastCommitDate);
+        },
+        error: function(error) {
+          console.log("Error getting commit count: " + error);
+        }
+      });
+    },
+    error: function(error) {
+      console.log("Error getting repository information: " + error);
+    }
+  });
 });
