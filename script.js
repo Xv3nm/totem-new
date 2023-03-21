@@ -89,37 +89,45 @@ $(document).ready(function() {
     });
   });
 
-  var repoName = "Xv3nm/totem-new";
-  var apiUrl = "https://api.github.com/repos/" + repoName;
+  const repoName = "Xv3nm/totem-new";
+const apiUrl = `https://api.github.com/repos/${repoName}`;
 
-  $.ajax({
-    url: apiUrl,
-    method: "GET",
-    headers: {
-      Accept: "application/vnd.github.v3+json"
-    },
-    success: function(data) {
-      var commitCountUrl = data["commits_url"].split("{")[0];
-      var lastCommitDate = data["pushed_at"];
+$.ajax({
+  url: apiUrl,
+  method: "GET",
+  headers: {
+    Accept: "application/vnd.github.v3+json"
+  },
+  success: function(data) {
+    const commitCount = data["size"];
+    console.log("Number of commits:", commitCount);
 
-      $.ajax({
-        url: commitCountUrl,
-        method: "GET",
-        headers: {
-          Accept: "application/vnd.github.v3+json"
-        },
-        success: function(data) {
-          var commitCount = data.length;
-          console.log("Number of commits: " + commitCount);
-          console.log("Last commit date: " + lastCommitDate);
-        },
-        error: function(error) {
-          console.log("Error getting commit count: " + error);
-        }
-      });
-    },
-    error: function(error) {
-      console.log("Error getting repository information: " + error);
+    const lastCommitDate = new Date(data["pushed_at"]);
+    const now = new Date();
+    const diffMs = now - lastCommitDate;
+    const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+    const diffHrs = Math.floor((diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const diffMins = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+    const diffSecs = Math.floor((diffMs % (1000 * 60)) / 1000);
+    let timeAgo = "";
+    if (diffDays > 0) {
+      timeAgo += `${diffDays} day(s) `;
     }
-  });
+    if (diffHrs > 0) {
+      timeAgo += `${diffHrs} hour(s) `;
+    }
+    if (diffMins > 0) {
+      timeAgo += `${diffMins} minute(s) `;
+    }
+    if (diffSecs > 0) {
+      timeAgo += `${diffSecs} second(s) `;
+    }
+    timeAgo += "ago";
+    console.log("Last commit was:", timeAgo);
+  },
+  error: function(error) {
+    console.log("Error getting repository information:", error);
+  }
+});
+
 });
