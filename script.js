@@ -126,6 +126,7 @@ $(document).ready(function() {
       }
       timeAgo += "ago";
       console.log("Last commit was:", timeAgo);
+      $(".updated-lable").text(timeAgo);
     })
     .catch(error => {
       console.error("Error getting commit count and last commit date:", error);
@@ -138,6 +139,7 @@ $(document).ready(function() {
     .then((data) => {
       const commitCount = data.commitCount;
       console.log('Commit count:', commitCount);
+      $(".commits-lable").text(commitCount + " Commits");
     })
     .catch((error) => {
       console.error('Error fetching and parsing commit_count.json:', error);
