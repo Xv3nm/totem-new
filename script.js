@@ -113,18 +113,15 @@ $(document).ready(function() {
       const diffSecs = Math.floor((diffMs % (1000 * 60)) / 1000);
       let timeAgo = "";
       if (diffDays > 0) {
-        timeAgo += `${diffDays} day(s) `;
+        timeAgo += `${diffDays} day(s)`;
+      } else if (diffHrs > 0) {
+        timeAgo += `${diffHrs} hour(s)`;
+      } else if (diffMins > 0) {
+        timeAgo += `${diffMins} minute(s)`;
+      } else {
+        timeAgo += `${diffSecs} second(s)`;
       }
-      if (diffHrs > 0) {
-        timeAgo += `${diffHrs} hour(s) `;
-      }
-      if (diffMins > 0) {
-        timeAgo += `${diffMins} minute(s) `;
-      }
-      if (diffSecs > 0) {
-        timeAgo += `${diffSecs} second(s) `;
-      }
-      timeAgo += "ago";
+      timeAgo += " ago";
       console.log("Last commit was:", timeAgo);
       $(".updated-lable").text(timeAgo);
     })
