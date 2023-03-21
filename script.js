@@ -76,15 +76,14 @@ toggleButton.addEventListener('click', () => {
   document.body.classList.toggle('light-mode');
 });
 
-const projectsTab = document.querySelector('.projects-wrapper')
-const homeTab = document.querySelector('.home-wrapper')
+$(document).ready(function() {
+  $(".home-btn").click(function() {
+    $(".home-wrapper").show();
+    $(".projects-wrapper").hide();
+  });
 
-function ShowHome() {
-  projectsTab.css("display", "none");
-  homeTab.css("display", "block");
-}
-
-function ShowProjects() {
-  homeTab.css("display", "none");
-  projectsTab.css("display", "block");
-}
+  $(".projects-btn").click(function() {
+    $(".home-wrapper").hide();
+    $(".projects-wrapper").show();
+  });
+});
