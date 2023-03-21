@@ -222,7 +222,7 @@ body.light-mode .video-bg:before {
   height: 40px;
   display: flex;
   width: 100%;
-  max-width: 400px;
+  max-width: 690px;
   padding-left: 16px;
   border-radius: 4px;
 }
@@ -302,7 +302,7 @@ body.light-mode .video-bg:before {
   display: none;
 }
 .wide .search-bar {
-  max-width: 690px;
+  max-width: 600px;
   margin: auto;
   transition: 0.4s;
   box-shadow: 0 0 0 1px var(--border-color);
