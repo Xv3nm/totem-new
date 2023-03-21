@@ -39,7 +39,7 @@ const commitCountBody = JSON.stringify({ query: commitCountQuery });
       commitCount,
     };
 
-    await fs.writeFile('commit_count.json', JSON.stringify(commitCountData, null, 2));
+    await fs.writeFile('commit_count.json', JSON.stringify(data, null, 2));
 
     console.log('commit_count.json has been updated');
   } catch (error) {
