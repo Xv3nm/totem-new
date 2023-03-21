@@ -90,19 +90,23 @@ $(document).ready(function() {
   });
 
   const repoName = "Xv3nm/totem-new";
-  const apiUrl = `https://api.github.com/repos/${repoName}`;
+  const branchName = "main";
 
-  $.ajax({
-    url: apiUrl,
-    method: "GET",
-    headers: {
-      Accept: "application/vnd.github.v3+json"
-    },
-    success: function(data) {
-      const commitCount = data["stargazers_count"];
+  // Retrieve commit count
+  const commitCountUrl = `https://api.github.com/repos/${repoName}/commits?sha=${branchName}&per_page=1`;
+  fetch(commitCountUrl)
+    .then(response => response.json())
+    .then(commits => {
+      const commitCount = commits.length;
       console.log("Number of commits:", commitCount);
 
-      const lastCommitDate = new Date(data["pushed_at"]);
+      // Retrieve last commit date
+      const lastCommitUrl = `https://api.github.com/repos/${repoName}/commits?sha=${branchName}&per_page=1`;
+      return fetch(lastCommitUrl);
+    })
+    .then(response => response.json())
+    .then(commits => {
+      const lastCommitDate = new Date(commits[0].commit.author.date);
       const now = new Date();
       const diffMs = now - lastCommitDate;
       const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
@@ -124,11 +128,11 @@ $(document).ready(function() {
       }
       timeAgo += "ago";
       console.log("Last commit was:", timeAgo);
-    },
-    error: function(error) {
-      console.log("Error getting repository information:", error);
-    }
-  });
+    })
+    .catch(error => {
+      console.error("Error getting commit count and last commit date:", error);
+    });
+
 
 
 });
