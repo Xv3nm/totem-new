@@ -29,5 +29,4 @@ jobs:
         git config user.name "GitHub Action"
         git config user.email "action@github.com"
         git add commit_count.json
-        git commit -m "Update commit count"
-        git push
+        git diff --cached --exit-code || (git commit -m "Update commit count" && git push)
