@@ -127,8 +127,10 @@ $(document).ready(function() {
   const endpoint = "https://api.github.com/graphql";
 
   const headers = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
+    "Authorization": "Bearer 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"
   };
+  
 
   const commitCountBody = JSON.stringify({ query: commitCountQuery });
   const lastCommitBody = JSON.stringify({ query: lastCommitQuery });
