@@ -131,19 +131,13 @@ $(document).ready(function() {
 
     const commitCountFileUrl = `https://raw.githubusercontent.com/${repoName}/${branchName}/commit_count.json`;
 
-    fetch(commitCountFileUrl)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`Error fetching commit_count.json: ${response.statusText}`);
-        }
-        return response.text();
-      })
-      .then(textContent => {
-        console.log("Raw content of commit_count.json:", textContent);
-      })
-      .catch(error => {
-        console.error("Error getting raw content of commit_count.json:", error);
-      });
-
-
+    fetch('https://raw.githubusercontent.com/username/repository/main/commit_count.json')
+    .then((response) => response.json())
+    .then((data) => {
+      const commitCount = data.commitCount;
+      console.log('Commit count:', commitCount);
+    })
+    .catch((error) => {
+      console.error('Error fetching and parsing commit_count.json:', error);
+    });
 });
