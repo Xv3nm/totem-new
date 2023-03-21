@@ -78,12 +78,12 @@ toggleButton.addEventListener('click', () => {
 
 $(document).ready(function() {
   $(".home-btn").click(function() {
-    $(".home-wrapper").show();
-    $(".projects-wrapper").hide();
+    $(".home-wrapper").fadeIn(500);
+    $(".projects-wrapper").fadeOut(500);
   });
 
   $(".projects-btn").click(function() {
-    $(".home-wrapper").hide();
-    $(".projects-wrapper").show();
+    $(".home-wrapper").fadeOut(500);
+    $(".projects-wrapper").fadeIn(500);
   });
 });
