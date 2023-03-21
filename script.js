@@ -89,6 +89,8 @@ $(document).ready(function() {
     });
   });
 
+  console.clear()
+
   const repoName = "Xv3nm/totem-new";
   const branchName = "main";
 
@@ -131,7 +133,7 @@ $(document).ready(function() {
 
     const commitCountFileUrl = `https://raw.githubusercontent.com/${repoName}/${branchName}/commit_count.json`;
 
-    fetch('https://raw.githubusercontent.com/username/repository/main/commit_count.json')
+    fetch('https://raw.githubusercontent.com/Xv3nm/totem-new/main/commit_count.json')
     .then((response) => response.json())
     .then((data) => {
       const commitCount = data.commitCount;
