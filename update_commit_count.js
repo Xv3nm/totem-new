@@ -1,5 +1,8 @@
-const repoName = "Xv3nm/totem-new";
-const branchName = "main";
+import fs from 'fs/promises';
+import fetch from 'node-fetch';
+
+const repoName = 'Xv3nm/totem-new';
+const branchName = 'main';
 
 const commitCountQuery = `query {
   repository(owner: "Xv3nm", name: "totem-new") {
@@ -15,24 +18,31 @@ const commitCountQuery = `query {
   }
 }`;
 
-const endpoint = "https://api.github.com/graphql";
+const endpoint = 'https://api.github.com/graphql';
 
 const headers = {
-  "Content-Type": "application/json"
+  'Content-Type': 'application/json',
 };
 
 const commitCountBody = JSON.stringify({ query: commitCountQuery });
 
 (async () => {
-  const fetch = await import("node-fetch").then(module => module.default);
-  
   try {
-    const response = await fetch(endpoint, { method: "POST", headers, body: commitCountBody });
+    const response = await fetch(endpoint, { method: 'POST', headers, body: commitCountBody });
     const data = await response.json();
     const commitCount = data.data.repository.ref.target.history.totalCount;
 
-    console.log("Number of commits:", commitCount);
+    console.log('Number of commits:', commitCount);
+
+    // Write the commit count to commit_count.json
+    const commitCountData = {
+      commitCount,
+    };
+
+    await fs.writeFile('commit_count.json', JSON.stringify(commitCountData, null, 2));
+
+    console.log('commit_count.json has been updated');
   } catch (error) {
-    console.error("Error getting commit count:", error);
+    console.error('Error getting commit count and updating file:', error);
   }
 })();
