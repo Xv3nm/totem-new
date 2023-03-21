@@ -22,6 +22,7 @@ const endpoint = 'https://api.github.com/graphql';
 
 const headers = {
   'Content-Type': 'application/json',
+  "Authorization": `Bearer ${process.env.GH_ACCESS_TOKEN}`
 };
 
 const commitCountBody = JSON.stringify({ query: commitCountQuery });
