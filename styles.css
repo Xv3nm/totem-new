@@ -253,7 +253,7 @@ body.light-mode .video-bg:before {
 .header-profile {
   display: flex;
   align-items: center;
-  padding: 0 16px 0 16px;
+  padding: 0 0 0 16px;
   flex-shrink: 0;
 }
 .header-profile svg {
@@ -294,7 +294,6 @@ body.light-mode .video-bg:before {
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid var(--theme-color);
-  margin-left: 22px;
 }
 
 .wide .header-menu,
