@@ -253,8 +253,7 @@ body.light-mode .video-bg:before {
 .header-profile {
   display: flex;
   align-items: center;
-  padding: 0 16px 0 40px;
-  margin-left: auto;
+  padding: 0 16px 0 16px;
   flex-shrink: 0;
 }
 .header-profile svg {
@@ -303,7 +302,7 @@ body.light-mode .video-bg:before {
   display: none;
 }
 .wide .search-bar {
-  max-width: 600px;
+  max-width: 690px;
   margin: auto;
   transition: 0.4s;
   box-shadow: 0 0 0 1px var(--border-color);
