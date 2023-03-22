@@ -894,3 +894,38 @@ body.light-mode .video-bg:before {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  z-index: 99;
+}
+
+#loading-screen p {
+  color: white;
+  font-size: 24px;
+  margin-bottom: 10px;
+  z-index: 100;
+}
+
+#progress-container {
+  width: 20%;
+  height: 5px;
+  background-color: gray;
+  z-index: 100;
+}
+
+#progress-bar {
+  height: 5px;
+  background-color: yellow;
+  width: 0;
+  z-index: 100;
+}
