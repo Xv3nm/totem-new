@@ -1,9 +1,9 @@
 name: Update Commit Count
 
 on:
-  schedule:
-    - cron: '*/30 * * * *'
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   update_commit_count:
