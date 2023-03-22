@@ -150,6 +150,7 @@ $(document).ready(function() {
 $(document).ready(function () {
   const $images = $('img');
   const $videos = $('video');
+  const $loadingHeader = $('#loading-header')
   const $loadingScreen = $('#loading-screen');
   const $progressBar = $('#progress-bar');
   const totalCount = $images.length + $videos.length;
@@ -161,7 +162,10 @@ $(document).ready(function () {
       $progressBar.width(`${progressPercentage}%`);
 
       if (loadedCount === totalCount) {
-          $loadingScreen.fadeOut();
+        $loadingHeader.text("Finished!");
+          setTimeout(function(){
+            $loadingScreen.fadeOut();
+          },1500)
       }
   }
 
