@@ -142,3 +142,42 @@ $(document).ready(function() {
       console.error('Error fetching and parsing commit_count.json:', error);
     });
 });
+
+
+
+// Loading Script
+
+$(document).ready(function () {
+  const $images = $('img');
+  const $videos = $('video');
+  const $loadingScreen = $('#loading-screen');
+  const $progressBar = $('#progress-bar');
+  const totalCount = $images.length + $videos.length;
+  let loadedCount = 0;
+
+  function updateProgressBar() {
+      loadedCount++;
+      const progressPercentage = (loadedCount / totalCount) * 100;
+      $progressBar.width(`${progressPercentage}%`);
+
+      if (loadedCount === totalCount) {
+          $loadingScreen.fadeOut();
+      }
+  }
+
+  if (totalCount === 0) {
+      $loadingScreen.hide();
+  } else {
+      $images.on('load', updateProgressBar).each(function () {
+          if (this.complete) {
+              $(this).trigger('load');
+          }
+      });
+
+      $videos.on('loadeddata', updateProgressBar).each(function () {
+          if (this.readyState >= 2) {
+              $(this).trigger('loadeddata');
+          }
+      });
+  }
+});
