@@ -162,10 +162,12 @@ $(document).ready(function () {
       $progressBar.width(`${progressPercentage}%`);
 
       if (loadedCount === totalCount) {
-        $loadingHeader.text("Finished!");
+        setTimeout(function(){
+          $loadingHeader.text("Finished!");
           setTimeout(function(){
             $loadingScreen.fadeOut();
-          },1500)
+          },500)
+        },1000)
       }
   }
 
