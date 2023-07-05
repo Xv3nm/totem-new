@@ -1,104 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer src="./script.js"></script>
-    <link rel="stylesheet" href="./styles.css">
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/1ea026145b.js" crossorigin="anonymous"></script>
-    <meta name="author" content="Totem#0001">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://totem.lol/images/totem-logo.png">
-    <meta property="og:url" content="https://totem.lol">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script defer src="../script.js"></script>
+        <link rel="stylesheet" href="../styles.css">
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/1ea026145b.js" crossorigin="anonymous"></script>
+        <meta name="author" content="Totem#0001">
+        <meta property="og:type" content="website">
+        <meta property="og:image" content="https://totem.lol/images/totem-logo.png">
+        <meta property="og:url" content="https://totem.lol">
+    </head>
 
-<body>
-    <div id="cards">
-        <div class="card" onclick="window.location.href = 'https://totem.lol/specs'">
-          <div class="card-content">
-            <div class="card-image">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-0.44 0.24 64 64" width="120" height="120">
-                    <g fill="#4c4c4c"><use xlink:href="#A"/>
-                        <path d="M10.034 30.1a1.4 1.4 0 0 0-1.42-1.42c-.8 0-1.33.62-1.33 1.42v6.746a1.4 1.4 0 0 0 1.42 1.42 1.4 1.4 0 0 0 1.42-1.42V30.1zm7.723-5.228a1.4 1.4 0 0 0-1.42-1.42 1.4 1.4 0 0 0-1.42 1.42v14.735a1.4 1.4 0 0 0 1.42 1.42 1.4 1.4 0 0 0 1.42-1.42zM25.4 30.1a1.4 1.4 0 0 0-1.42-1.42 1.4 1.4 0 0 0-1.42 1.42v6.746a1.4 1.4 0 0 0 1.42 1.42 1.4 1.4 0 0 0 1.42-1.42z"/>
-                        <use xlink:href="#A" x="30.625"/>
-                        <path d="M40.66 30.1a1.4 1.4 0 1 0-2.841 0v6.746a1.4 1.4 0 1 0 2.841 0zm7.632-5.228a1.4 1.4 0 1 0-2.841 0v14.735a1.4 1.4 0 1 0 2.841 0zm7.634 5.228a1.4 1.4 0 1 0-2.841 0v6.746a1.4 1.4 0 1 0 2.841 0zm7.634 3.827a1.4 1.4 0 1 0-2.84 0v2.93a1.4 1.4 0 1 0 2.84 0z"/>
-                    </g>
-                    <defs>
-                        <path id="A" d="M2.4 33.927a1.4 1.4 0 0 0-1.42-1.42 1.4 1.4 0 0 0-1.42 1.42v2.93a1.4 1.4 0 0 0 1.42 1.42 1.4 1.4 0 0 0 1.42-1.42z"/>
-                    </defs>
-                </svg>
-            </div>
-            <div class="card-info-wrapper">
-              <div class="card-info">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-0.44 0.24 64 64" width="28" height="28">
-                    <g fill="#ffffff"><use xlink:href="#A"/>
-                        <path d="M10.034 30.1a1.4 1.4 0 0 0-1.42-1.42c-.8 0-1.33.62-1.33 1.42v6.746a1.4 1.4 0 0 0 1.42 1.42 1.4 1.4 0 0 0 1.42-1.42V30.1zm7.723-5.228a1.4 1.4 0 0 0-1.42-1.42 1.4 1.4 0 0 0-1.42 1.42v14.735a1.4 1.4 0 0 0 1.42 1.42 1.4 1.4 0 0 0 1.42-1.42zM25.4 30.1a1.4 1.4 0 0 0-1.42-1.42 1.4 1.4 0 0 0-1.42 1.42v6.746a1.4 1.4 0 0 0 1.42 1.42 1.4 1.4 0 0 0 1.42-1.42z"/>
-                        <use xlink:href="#A" x="30.625"/>
-                        <path d="M40.66 30.1a1.4 1.4 0 1 0-2.841 0v6.746a1.4 1.4 0 1 0 2.841 0zm7.632-5.228a1.4 1.4 0 1 0-2.841 0v14.735a1.4 1.4 0 1 0 2.841 0zm7.634 5.228a1.4 1.4 0 1 0-2.841 0v6.746a1.4 1.4 0 1 0 2.841 0zm7.634 3.827a1.4 1.4 0 1 0-2.84 0v2.93a1.4 1.4 0 1 0 2.84 0z"/>
-                    </g>
-                    <defs>
-                        <path id="A" d="M2.4 33.927a1.4 1.4 0 0 0-1.42-1.42 1.4 1.4 0 0 0-1.42 1.42v2.93a1.4 1.4 0 0 0 1.42 1.42 1.4 1.4 0 0 0 1.42-1.42z"/>
-                    </defs>
-                </svg>
-                <div class="card-info-title">
-                  <h3>Server Specifications</h3>  
-                  <h4>https://totem.lol/specs</h4>
-                </div>    
+    <body>
+        <div id="cards">
+            <div style="width: 100%;" class="card" onclick="window.location.href = 'https://totem.lol/mods'">
+              <div class="card-content">
+                <div class="card-info-wrapper">
+                  <div class="card-info">
+                    <img style="height: 20px;" src="../images/mods.png"/>
+                    <div class="card-info-title">
+                      <h3>Server Modlist</h3>  
+                      <hr>
+                      <h4>Alexmobs-1.22.5_1</h4>
+                      <h4>Architectury-9.0.8</h4>
+                      <h4>BetterFurnaces-0.1.7</h4>
+                      <h4>BiomesOPlenty-18.0.0.590</h4>
+                      <h4>Citadel-2.4.2</h4>
+                      <h4>Dynamicassetgenerator-4.1.0</h4>
+                      <h4>Excavatedvariants-3.0.3</h4>
+                      <h4>FactoryAPI-0.1.8-forge</h4>
+                      <h4>Ironchest-14.4.4</h4>
+                      <h4>JEI-15.2.0.22</h4>
+                      <h4>MouseTweaks-2.25</h4>
+                      <h4>Nightlights-1.1_1</h4>
+                      <h4>Open-parties-and-claims-0.18.0</h4>
+                      <h4>PattysMoreStuff-Stable-1.4.1_1</h4>
+                      <h4>TerraBlender-3.0.0.163</h4>
+                      <h4>Xaeros_Minimap_23.5.0</h4>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
         </div>
-        <div class="card" onclick="window.location.href = 'https://totem.lol/mods'">
-          <div class="card-content">
-            <div class="card-image">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-0.44 0.24 64 64" width="120" height="120">
-                    <g fill="#4c4c4c"><use xlink:href="#A"/>
-                        <path d="M10.034 30.1a1.4 1.4 0 0 0-1.42-1.42c-.8 0-1.33.62-1.33 1.42v6.746a1.4 1.4 0 0 0 1.42 1.42 1.4 1.4 0 0 0 1.42-1.42V30.1zm7.723-5.228a1.4 1.4 0 0 0-1.42-1.42 1.4 1.4 0 0 0-1.42 1.42v14.735a1.4 1.4 0 0 0 1.42 1.42 1.4 1.4 0 0 0 1.42-1.42zM25.4 30.1a1.4 1.4 0 0 0-1.42-1.42 1.4 1.4 0 0 0-1.42 1.42v6.746a1.4 1.4 0 0 0 1.42 1.42 1.4 1.4 0 0 0 1.42-1.42z"/>
-                        <use xlink:href="#A" x="30.625"/>
-                        <path d="M40.66 30.1a1.4 1.4 0 1 0-2.841 0v6.746a1.4 1.4 0 1 0 2.841 0zm7.632-5.228a1.4 1.4 0 1 0-2.841 0v14.735a1.4 1.4 0 1 0 2.841 0zm7.634 5.228a1.4 1.4 0 1 0-2.841 0v6.746a1.4 1.4 0 1 0 2.841 0zm7.634 3.827a1.4 1.4 0 1 0-2.84 0v2.93a1.4 1.4 0 1 0 2.84 0z"/>
-                    </g>
-                    <defs>
-                        <path id="A" d="M2.4 33.927a1.4 1.4 0 0 0-1.42-1.42 1.4 1.4 0 0 0-1.42 1.42v2.93a1.4 1.4 0 0 0 1.42 1.42 1.4 1.4 0 0 0 1.42-1.42z"/>
-                    </defs>
-                </svg>
-            </div>
-            <div class="card-info-wrapper">
-              <div class="card-info">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-0.44 0.24 64 64" width="28" height="28">
-                    <g fill="#ffffff"><use xlink:href="#A"/>
-                        <path d="M10.034 30.1a1.4 1.4 0 0 0-1.42-1.42c-.8 0-1.33.62-1.33 1.42v6.746a1.4 1.4 0 0 0 1.42 1.42 1.4 1.4 0 0 0 1.42-1.42V30.1zm7.723-5.228a1.4 1.4 0 0 0-1.42-1.42 1.4 1.4 0 0 0-1.42 1.42v14.735a1.4 1.4 0 0 0 1.42 1.42 1.4 1.4 0 0 0 1.42-1.42zM25.4 30.1a1.4 1.4 0 0 0-1.42-1.42 1.4 1.4 0 0 0-1.42 1.42v6.746a1.4 1.4 0 0 0 1.42 1.42 1.4 1.4 0 0 0 1.42-1.42z"/>
-                        <use xlink:href="#A" x="30.625"/>
-                        <path d="M40.66 30.1a1.4 1.4 0 1 0-2.841 0v6.746a1.4 1.4 0 1 0 2.841 0zm7.632-5.228a1.4 1.4 0 1 0-2.841 0v14.735a1.4 1.4 0 1 0 2.841 0zm7.634 5.228a1.4 1.4 0 1 0-2.841 0v6.746a1.4 1.4 0 1 0 2.841 0zm7.634 3.827a1.4 1.4 0 1 0-2.84 0v2.93a1.4 1.4 0 1 0 2.84 0z"/>
-                    </g>
-                    <defs>
-                        <path id="A" d="M2.4 33.927a1.4 1.4 0 0 0-1.42-1.42 1.4 1.4 0 0 0-1.42 1.42v2.93a1.4 1.4 0 0 0 1.42 1.42 1.4 1.4 0 0 0 1.42-1.42z"/>
-                    </defs>
-                </svg>
-                <div class="card-info-title">
-                  <h3>Server Mods</h3>  
-                  <h4>https://totem.lol/mods</h4>
-                </div>    
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card" onclick="window.location.href = 'https://discord.gg/9AqFWvjmWV'">
-          <div class="card-content">
-            <div class="card-image">
-              <i class="fa-brands fa-discord"></i>
-            </div>
-            <div class="card-info-wrapper">
-              <div class="card-info">
-                <i class="fa-brands fa-discord"></i>
-                <div class="card-info-title">
-                  <h3>Discord Server</h3>  
-                  <h4>https://discord.gg/9AqFWvjmWV</h4>
-                </div>    
-              </div>
-            </div>
-          </div>
-        </div>
-</body>
+    </body>
 </html>
